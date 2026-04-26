@@ -247,19 +247,19 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#EDE9E6] font-sans selection:bg-[#C9996B]/30 flex flex-col text-[#5C4F4A]">
       {/* Header Area */}
-      <header className="h-20 bg-white border-b-4 border-[#C9996B]/20 flex items-center justify-between px-6 shrink-0 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#C9996B] rounded-full flex items-center justify-center text-xl shadow-sm border-2 border-white">🕒</div>
-          <h1 className="text-2xl font-black tracking-tight text-[#5C4F4A] font-title">
+      <header className="h-auto py-4 bg-white border-b-4 border-[#C9996B]/20 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 shrink-0 shadow-sm gap-4">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#C9996B] rounded-full flex items-center justify-center text-lg sm:text-xl shadow-sm border-2 border-white">🕒</div>
+          <h1 className="text-xl sm:text-2xl font-black tracking-tight text-[#5C4F4A] font-title">
             시계 박사 <span className="text-[#EF4444]">프로젝트</span>
           </h1>
         </div>
         
         {/* Navigation Tabs */}
-        <nav className="flex gap-2">
+        <nav className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
           <button
             onClick={() => handleModeChange('exploration')}
-            className={`px-6 py-2 rounded-2xl font-black transition-all font-title ${
+            className={`px-3 py-1.5 sm:px-6 sm:py-2 rounded-xl sm:rounded-2xl text-sm sm:text-base font-black transition-all font-title ${
               mode === 'exploration' 
                 ? 'bg-[#C9996B] text-white shadow-md border-b-4 border-[#5C4F4A]/20' 
                 : 'bg-white text-[#5C4F4A]/60 border-b-4 border-[#EDE9E6] hover:bg-[#EDE9E6]'
@@ -269,7 +269,7 @@ export default function App() {
           </button>
           <button
             onClick={() => handleModeChange('quiz')}
-            className={`px-6 py-2 rounded-2xl font-black transition-all font-title ${
+            className={`px-3 py-1.5 sm:px-6 sm:py-2 rounded-xl sm:rounded-2xl text-sm sm:text-base font-black transition-all font-title ${
               mode === 'quiz' 
                 ? 'bg-[#C9996B] text-white shadow-md border-b-4 border-[#5C4F4A]/20' 
                 : 'bg-white text-[#5C4F4A]/60 border-b-4 border-[#EDE9E6] hover:bg-[#EDE9E6]'
@@ -279,7 +279,7 @@ export default function App() {
           </button>
           <button
             onClick={() => handleModeChange('admin')}
-            className={`px-6 py-2 rounded-2xl font-black transition-all font-title ${
+            className={`px-3 py-1.5 sm:px-6 sm:py-2 rounded-xl sm:rounded-2xl text-sm sm:text-base font-black transition-all font-title ${
               mode === 'admin' 
                 ? 'bg-[#C9996B] text-white shadow-md border-b-4 border-[#5C4F4A]/20' 
                 : 'bg-white text-[#5C4F4A]/60 border-b-4 border-[#EDE9E6] hover:bg-[#EDE9E6]'
@@ -290,8 +290,8 @@ export default function App() {
         </nav>
       </header>
 
-      <main className="flex-1 flex flex-col items-center justify-center p-4 lg:p-8 relative overflow-hidden">
-        <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
+      <main className="flex-1 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden">
+        <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-24">
           
           {/* Left Side: Analog Clock Container */}
           <div className="relative">
@@ -309,11 +309,11 @@ export default function App() {
                   initial={{ scale: 0, opacity: 0, rotate: -20 }}
                   animate={{ scale: 1.2, opacity: 1, rotate: 0 }}
                   exit={{ scale: 0, opacity: 0 }}
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none z-50"
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none z-50 p-4"
                 >
-                  <div className="bg-white px-8 py-4 rounded-full shadow-2xl border-4 border-[#C9996B]/30 flex items-center gap-3">
-                    <CheckCircle2 size={40} className="text-[#C9996B]" />
-                    <span className="text-3xl font-black text-[#5C4F4A]">참 잘했어요!</span>
+                  <div className="bg-white px-4 py-2 sm:px-8 sm:py-4 rounded-full shadow-2xl border-4 border-[#C9996B]/30 flex items-center gap-2 sm:gap-3">
+                    <CheckCircle2 size={24} className="text-[#C9996B] sm:w-[40px] sm:h-[40px]" />
+                    <span className="text-xl sm:text-3xl font-black text-[#5C4F4A] whitespace-nowrap">참 잘했어요!</span>
                   </div>
                 </motion.div>
               )}
@@ -322,11 +322,11 @@ export default function App() {
                   initial={{ scale: 0, opacity: 0, rotate: 20 }}
                   animate={{ scale: 1.2, opacity: 1, rotate: 0 }}
                   exit={{ scale: 0, opacity: 0 }}
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none z-50"
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none z-50 p-4"
                 >
-                  <div className="bg-white px-8 py-4 rounded-full shadow-2xl border-4 border-[#EF4444]/30 flex items-center gap-3">
-                    <RotateCcw size={40} className="text-[#EF4444]" />
-                    <span className="text-3xl font-black text-[#5C4F4A]">다시 해보자!</span>
+                  <div className="bg-white px-4 py-2 sm:px-8 sm:py-4 rounded-full shadow-2xl border-4 border-[#EF4444]/30 flex items-center gap-2 sm:gap-3">
+                    <RotateCcw size={24} className="text-[#EF4444] sm:w-[40px] sm:h-[40px]" />
+                    <span className="text-xl sm:text-3xl font-black text-[#5C4F4A] whitespace-nowrap">다시 해보자!</span>
                   </div>
                 </motion.div>
               )}
@@ -563,87 +563,91 @@ export default function App() {
 
             {/* Hint / Digital Clock */}
             <div className="w-full flex flex-col items-center gap-6">
-              <AnimatePresence mode="wait">
-                {(mode === 'exploration' || showHint || showSuccess) ? (
-                  <motion.div
-                    key="visible-digital"
-                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, y: -10 }}
-                    className="w-full flex justify-center"
-                  >
-                    <DigitalClock 
-                      time={currentTime} 
-                      onChange={setCurrentTime}
-                      lockHour={mode === 'quiz' && quizView === 'active' && quizLevel === 2}
-                      lockMinute={mode === 'quiz' && quizView === 'active' && quizLevel === 1}
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="hidden-digital"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="w-full flex flex-col items-center gap-4 py-4"
-                  >
-                    <button
-                      onClick={() => setShowHint(true)}
-                      className="group w-full max-w-sm flex flex-col items-center gap-3 bg-white/40 p-8 rounded-[3rem] border-4 border-dashed border-[#C9996B]/30 hover:bg-white/60 transition-all active:scale-95"
-                    >
-                      <Eye size={48} className="text-[#C9996B] group-hover:scale-110 transition-transform" />
-                      <span className="text-[#C9996B] font-black text-xl tracking-tight">디지털 시계 확인하기</span>
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              
-              {(mode === 'quiz' || (mode === 'admin' && adminView === 'game')) ? (
-                <div className={`flex gap-4 w-full justify-center ${mode === 'admin' && adminQuizIndex === 5 ? 'hidden' : ''}`}>
-                  {showHint && !showSuccess && (
-                    <button
-                      onClick={() => setShowHint(false)}
-                      className="px-6 py-4 rounded-2xl font-black bg-white text-[#5C4F4A]/60 shadow-md border-b-4 border-[#EDE9E6] active:translate-y-1 active:border-b-0"
-                    >
-                      가리기
-                    </button>
-                  )}
-                  {showSuccess && (mode === 'quiz' || mode === 'admin') ? (
-                    <button
-                      onClick={handleNextProblem}
-                      className="flex-1 max-w-[240px] px-10 py-4 rounded-2xl font-black text-xl shadow-lg transition-all transform active:scale-95 border-b-4 bg-[#EF4444] text-white border-[#5C4F4A]/20 hover:brightness-105 active:border-b-0 active:translate-y-1 font-sans"
-                    >
-                      다음 문제
-                    </button>
+              {!(mode === 'quiz' && quizView === 'selection') && (
+                <>
+                  <AnimatePresence mode="wait">
+                    {(mode === 'exploration' || showHint || showSuccess) ? (
+                      <motion.div
+                        key="visible-digital"
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: -10 }}
+                        className="w-full flex justify-center"
+                      >
+                        <DigitalClock 
+                          time={currentTime} 
+                          onChange={setCurrentTime}
+                          lockHour={mode === 'quiz' && quizView === 'active' && quizLevel === 2}
+                          lockMinute={mode === 'quiz' && quizView === 'active' && quizLevel === 1}
+                        />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="hidden-digital"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="w-full flex flex-col items-center gap-4 py-4"
+                      >
+                        <button
+                          onClick={() => setShowHint(true)}
+                          className="group w-full max-w-sm flex flex-col items-center gap-3 bg-white/40 p-8 rounded-[3rem] border-4 border-dashed border-[#C9996B]/30 hover:bg-white/60 transition-all active:scale-95"
+                        >
+                          <Eye size={48} className="text-[#C9996B] group-hover:scale-110 transition-transform" />
+                          <span className="text-[#C9996B] font-black text-xl tracking-tight">디지털 시계 확인하기</span>
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  
+                  {(mode === 'quiz' || (mode === 'admin' && adminView === 'game')) ? (
+                    <div className={`flex gap-4 w-full justify-center ${mode === 'admin' && adminQuizIndex === 5 ? 'hidden' : ''}`}>
+                      {showHint && !showSuccess && (
+                        <button
+                          onClick={() => setShowHint(false)}
+                          className="px-6 py-4 rounded-2xl font-black bg-white text-[#5C4F4A]/60 shadow-md border-b-4 border-[#EDE9E6] active:translate-y-1 active:border-b-0"
+                        >
+                          가리기
+                        </button>
+                      )}
+                      {showSuccess && (mode === 'quiz' || mode === 'admin') ? (
+                        <button
+                          onClick={handleNextProblem}
+                          className="flex-1 max-w-[240px] px-10 py-4 rounded-2xl font-black text-xl shadow-lg transition-all transform active:scale-95 border-b-4 bg-[#EF4444] text-white border-[#5C4F4A]/20 hover:brightness-105 active:border-b-0 active:translate-y-1 font-sans"
+                        >
+                          다음 문제
+                        </button>
+                      ) : (
+                        <button
+                          onClick={checkAnswer}
+                          disabled={showSuccess}
+                          className={`flex-1 max-w-[240px] px-10 py-4 rounded-2xl font-black text-xl shadow-lg transition-all transform active:scale-95 border-b-4 ${
+                            showSuccess 
+                              ? 'bg-white text-[#5C4F4A]/40 border-[#EDE9E6] cursor-not-allowed' 
+                              : 'bg-[#C9996B] text-white border-[#5C4F4A]/20 hover:brightness-105 active:border-b-0 active:translate-y-1 font-sans'
+                          }`}
+                        >
+                          정답인가요?
+                        </button>
+                      )}
+                    </div>
                   ) : (
-                    <button
-                      onClick={checkAnswer}
-                      disabled={showSuccess}
-                      className={`flex-1 max-w-[240px] px-10 py-4 rounded-2xl font-black text-xl shadow-lg transition-all transform active:scale-95 border-b-4 ${
-                        showSuccess 
-                          ? 'bg-white text-[#5C4F4A]/40 border-[#EDE9E6] cursor-not-allowed' 
-                          : 'bg-[#C9996B] text-white border-[#5C4F4A]/20 hover:brightness-105 active:border-b-0 active:translate-y-1 font-sans'
-                      }`}
-                    >
-                      정답인가요?
-                    </button>
+                    <div className="w-full flex flex-col items-center gap-4">
+                      <div className="bg-white/60 backdrop-blur-sm border-2 border-[#C9996B]/20 px-6 py-3 rounded-2xl flex items-center gap-3 w-full">
+                        <span className="w-3 h-3 rounded-full bg-[#C9996B] shadow-sm animate-pulse" />
+                        <p className="text-[#C9996B] font-bold text-sm leading-tight text-center flex-1">
+                          바늘이나 숫자 카드를 움직여보세요!
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => speakTime(currentTime.hour, currentTime.minute)}
+                        className="flex items-center gap-2 bg-white px-6 py-3 rounded-2xl shadow-md border-b-4 border-[#EDE9E6] hover:bg-[#EDE9E6] transition-all active:translate-y-1 active:border-b-0 group"
+                      >
+                        <Volume2 size={24} className="text-[#C9996B] group-hover:scale-110 transition-transform" />
+                        <span className="text-[#5C4F4A] font-black text-lg">몇 시인가요?</span>
+                      </button>
+                    </div>
                   )}
-                </div>
-              ) : (
-                <div className="w-full flex flex-col items-center gap-4">
-                  <div className="bg-white/60 backdrop-blur-sm border-2 border-[#C9996B]/20 px-6 py-3 rounded-2xl flex items-center gap-3 w-full">
-                    <span className="w-3 h-3 rounded-full bg-[#C9996B] shadow-sm animate-pulse" />
-                    <p className="text-[#C9996B] font-bold text-sm leading-tight text-center flex-1">
-                      바늘이나 숫자 카드를 움직여보세요!
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => speakTime(currentTime.hour, currentTime.minute)}
-                    className="flex items-center gap-2 bg-white px-6 py-3 rounded-2xl shadow-md border-b-4 border-[#EDE9E6] hover:bg-[#EDE9E6] transition-all active:translate-y-1 active:border-b-0 group"
-                  >
-                    <Volume2 size={24} className="text-[#C9996B] group-hover:scale-110 transition-transform" />
-                    <span className="text-[#5C4F4A] font-black text-lg">몇 시인가요?</span>
-                  </button>
-                </div>
+                </>
               )}
             </div>
           </div>
@@ -652,8 +656,8 @@ export default function App() {
       </main>
 
       {/* Footer Area */}
-      <footer className="h-16 bg-white border-t-2 border-[#C9996B]/10 px-10 flex items-center justify-center shrink-0">
-        <p className="text-[#C9996B] font-bold text-sm tracking-wide">
+      <footer className="h-auto py-4 bg-white border-t-2 border-[#C9996B]/10 px-4 sm:px-10 flex items-center justify-center shrink-0">
+        <p className="text-[#C9996B] font-bold text-xs sm:text-sm tracking-wide text-center">
           "시침과 분침을 한눈에 보며 시간 박사가 되어볼까요?"
         </p>
       </footer>
@@ -722,7 +726,7 @@ function AnalogClock({ time, onChange, interactive, lockHour, lockMinute }: {
   return (
     <div 
       ref={clockRef}
-      className="w-80 h-80 sm:w-[480px] sm:h-[480px] bg-white rounded-full border-[12px] border-[#C9996B] shadow-[0_15px_0_0_#C9996B/60,0_25px_30px_rgba(92,79,74,0.1)] flex items-center justify-center relative touch-none"
+      className="w-[280px] h-[280px] sm:w-[480px] sm:h-[480px] bg-white rounded-full border-[8px] sm:border-[12px] border-[#C9996B] shadow-[0_10px_0_0_#C9996B/60,0_15px_20px_rgba(92,79,74,0.1)] flex items-center justify-center relative touch-none [--clock-radius:110px] sm:[--clock-radius:175px]"
     >
       {/* Dashed Inner ring */}
       <div className="absolute inset-4 border-2 border-dashed border-[#C9996B]/10 rounded-full scale-105 pointer-events-none" />
@@ -736,9 +740,9 @@ function AnalogClock({ time, onChange, interactive, lockHour, lockMinute }: {
         return (
           <div
             key={hour}
-            className={`absolute font-black ${numbersZIndex} ${isMajor ? 'text-5xl text-[#EF4444]' : 'text-3xl text-[#EF4444]/60'}`}
+            className={`absolute font-black ${numbersZIndex} ${isMajor ? 'text-2xl sm:text-5xl text-[#EF4444]' : 'text-lg sm:text-3xl text-[#EF4444]/60'}`}
             style={{
-              transform: `rotate(${angle}deg) translateY(-175px) rotate(-${angle}deg)`
+              transform: `rotate(${angle}deg) translateY(calc(var(--clock-radius) * -1)) rotate(-${angle}deg)`
             }}
           >
             {hour}
@@ -754,9 +758,9 @@ function AnalogClock({ time, onChange, interactive, lockHour, lockMinute }: {
         return (
           <div
             key={`guide-${i}`}
-            className={`absolute font-black text-lg text-[#3B82F6] ${guideZIndex}`}
+            className={`absolute font-black text-xs sm:text-lg text-[#3B82F6] ${guideZIndex}`}
             style={{
-              transform: `rotate(${angle}deg) translateY(-225px) rotate(-${angle}deg)`
+              transform: `rotate(${angle}deg) translateY(calc(var(--clock-radius) * -1.25)) rotate(-${angle}deg)`
             }}
           >
             {val}
@@ -765,7 +769,7 @@ function AnalogClock({ time, onChange, interactive, lockHour, lockMinute }: {
       })}
 
       {/* Center dot */}
-      <div className="absolute w-8 h-8 bg-[#C9996B] rounded-full z-40 ring-4 ring-white shadow-md shadow-inner" />
+      <div className="absolute w-5 h-5 sm:w-8 sm:h-8 bg-[#C9996B] rounded-full z-40 ring-2 sm:ring-4 ring-white shadow-md shadow-inner" />
 
       {/* Minute Hand (Blue) */}
       <motion.div
@@ -774,7 +778,7 @@ function AnalogClock({ time, onChange, interactive, lockHour, lockMinute }: {
         dragElastic={0}
         dragMomentum={false}
         onDrag={(e) => handleDrag(e, 'minute')}
-        className={`absolute w-[200px] h-5 origin-left rounded-full ${lockMinute ? 'z-20' : 'z-50'} flex items-center justify-end pr-4 left-1/2 ${lockMinute ? 'cursor-default opacity-60' : 'cursor-grab active:cursor-grabbing'}`}
+        className={`absolute w-[110px] sm:w-[200px] h-3 sm:h-5 origin-left rounded-full ${lockMinute ? 'z-20' : 'z-50'} flex items-center justify-end pr-2 sm:pr-4 left-1/2 ${lockMinute ? 'cursor-default opacity-60' : 'cursor-grab active:cursor-grabbing'}`}
         style={{
           rotate: minuteRotation - 90,
           backgroundColor: '#3B82F6',
@@ -782,8 +786,8 @@ function AnalogClock({ time, onChange, interactive, lockHour, lockMinute }: {
           translateY: '-50%'
         }}
       >
-        <div className="w-12 h-12 bg-white rounded-full border-4 border-[#3B82F6] flex items-center justify-center rotate-inherit shadow-sm">
-           <span className="text-[#3B82F6] font-black text-lg">분</span>
+        <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-full border-2 sm:border-4 border-[#3B82F6] flex items-center justify-center rotate-inherit shadow-sm">
+           <span className="text-[#3B82F6] font-black text-sm sm:text-lg">분</span>
         </div>
       </motion.div>
 
@@ -794,7 +798,7 @@ function AnalogClock({ time, onChange, interactive, lockHour, lockMinute }: {
         dragElastic={0}
         dragMomentum={false}
         onDrag={(e) => handleDrag(e, 'hour')}
-        className={`absolute w-[150px] h-8 origin-left rounded-full ${lockMinute ? 'z-30' : 'z-20'} flex items-center justify-end pr-4 left-1/2 ${lockHour ? 'cursor-default opacity-60' : 'cursor-grab active:cursor-grabbing'}`}
+        className={`absolute w-[80px] sm:w-[150px] h-5 sm:h-8 origin-left rounded-full ${lockMinute ? 'z-30' : 'z-20'} flex items-center justify-end pr-2 sm:pr-4 left-1/2 ${lockHour ? 'cursor-default opacity-60' : 'cursor-grab active:cursor-grabbing'}`}
         style={{
           rotate: hourRotation - 90,
           backgroundColor: '#EF4444',
@@ -802,8 +806,8 @@ function AnalogClock({ time, onChange, interactive, lockHour, lockMinute }: {
           translateY: '-50%'
         }}
       >
-         <div className="w-12 h-12 bg-white rounded-full border-4 border-[#EF4444] flex items-center justify-center rotate-inherit shadow-sm">
-           <span className="text-[#EF4444] font-black text-lg">시</span>
+         <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-full border-2 sm:border-4 border-[#EF4444] flex items-center justify-center rotate-inherit shadow-sm">
+           <span className="text-[#EF4444] font-black text-sm sm:text-lg">시</span>
         </div>
       </motion.div>
     </div>
@@ -853,50 +857,50 @@ function DigitalClock({ time, onChange, lockHour, lockMinute }: {
   };
 
   return (
-    <div className="flex items-center gap-4 bg-white/40 p-4 rounded-[2.5rem] border-2 border-[#C9996B]/20 shadow-sm">
+    <div className="flex items-center gap-2 sm:gap-4 bg-white/40 p-2 sm:p-4 rounded-[2rem] sm:rounded-[2.5rem] border-2 border-[#C9996B]/20 shadow-sm relative z-0">
       {/* Hour Block */}
-      <div className={`flex flex-col items-center gap-2 ${lockHour ? 'opacity-40 pointer-events-none' : ''}`}>
+      <div className={`flex flex-col items-center gap-1 sm:gap-2 ${lockHour ? 'opacity-40 pointer-events-none' : ''}`}>
         <button 
           onClick={() => handleTimeStep('hour', 1)}
-          className="p-2 hover:bg-red-50 text-red-300 hover:text-red-500 transition-colors"
+          className="p-1 sm:p-2 hover:bg-red-50 text-red-300 hover:text-red-500 transition-colors"
         >
-          <ArrowRight size={32} className="-rotate-90 stroke-[3]" />
+          <ArrowRight size={24} className="-rotate-90 stroke-[3] sm:w-[32px] sm:h-[32px]" />
         </button>
-        <div className="w-28 h-36 bg-white border-4 border-[#C9996B]/30 rounded-2xl shadow-md flex items-center justify-center relative overflow-hidden group">
+        <div className="w-20 h-24 sm:w-28 sm:h-36 bg-white border-2 sm:border-4 border-[#C9996B]/30 rounded-xl sm:rounded-2xl shadow-md flex items-center justify-center relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-full h-1/2 bg-[#EDE9E6] opacity-30 group-hover:opacity-40 transition-opacity" />
-          <span className="text-7xl font-black text-[#EF4444] z-10 drop-shadow-sm font-sans">
+          <span className="text-4xl sm:text-7xl font-black text-[#EF4444] z-10 drop-shadow-sm font-sans">
             {time.hour}
           </span>
         </div>
         <button 
           onClick={() => handleTimeStep('hour', -1)}
-          className="p-2 hover:bg-red-50 text-red-300 hover:text-red-500 transition-colors"
+          className="p-1 sm:p-2 hover:bg-red-50 text-red-300 hover:text-red-500 transition-colors"
         >
-          <ArrowRight size={32} className="rotate-90 stroke-[3]" />
+          <ArrowRight size={24} className="rotate-90 stroke-[3] sm:w-[32px] sm:h-[32px]" />
         </button>
       </div>
 
-      <span className="text-6xl font-black text-[#C9996B]/30 mb-8">:</span>
+      <span className="text-3xl sm:text-6xl font-black text-[#C9996B]/30 mb-6 sm:mb-8">:</span>
 
       {/* Minute Block */}
-      <div className={`flex flex-col items-center gap-2 ${lockMinute ? 'opacity-40 pointer-events-none' : ''}`}>
+      <div className={`flex flex-col items-center gap-1 sm:gap-2 ${lockMinute ? 'opacity-40 pointer-events-none' : ''}`}>
         <button 
           onClick={() => handleTimeStep('minute', 5)}
-          className="p-2 hover:bg-blue-50 text-blue-300 hover:text-blue-500 transition-colors"
+          className="p-1 sm:p-2 hover:bg-blue-50 text-blue-300 hover:text-blue-500 transition-colors"
         >
-          <ArrowRight size={32} className="-rotate-90 stroke-[3]" />
+          <ArrowRight size={24} className="-rotate-90 stroke-[3] sm:w-[32px] sm:h-[32px]" />
         </button>
-        <div className="w-28 h-36 bg-white border-4 border-[#C9996B]/30 rounded-2xl shadow-md flex items-center justify-center relative overflow-hidden group">
+        <div className="w-20 h-24 sm:w-28 sm:h-36 bg-white border-2 sm:border-4 border-[#C9996B]/30 rounded-xl sm:rounded-2xl shadow-md flex items-center justify-center relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-full h-1/2 bg-[#EDE9E6] opacity-30 group-hover:opacity-40 transition-opacity" />
-          <span className="text-7xl font-black text-[#3B82F6] z-10 drop-shadow-sm font-sans">
+          <span className="text-4xl sm:text-7xl font-black text-[#3B82F6] z-10 drop-shadow-sm font-sans">
             {time.minute.toString().padStart(2, '0')}
           </span>
         </div>
         <button 
           onClick={() => handleTimeStep('minute', -5)}
-          className="p-2 hover:bg-blue-50 text-blue-300 hover:text-blue-500 transition-colors"
+          className="p-1 sm:p-2 hover:bg-blue-50 text-blue-300 hover:text-blue-500 transition-colors"
         >
-          <ArrowRight size={32} className="rotate-90 stroke-[3]" />
+          <ArrowRight size={24} className="rotate-90 stroke-[3] sm:w-[32px] sm:h-[32px]" />
         </button>
       </div>
     </div>
